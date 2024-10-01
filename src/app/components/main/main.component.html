@@ -30,17 +30,17 @@
         <div class="mainRestContainer">
             <div class="q-1">
                 <label for="">Question (Stem)*</label>
-                <input type="text" placeholder="Enter Question (Stem)">
+                <input type="text" [(ngModel)]="getQuestion(0).name" placeholder="Enter Question (Stem)">
             </div>
             <div class="q-2">
-                <input type="text" placeholder="Stimulus Label">
-                <input type="text" placeholder="Response Label">
+                <input  type="text" [(ngModel)]="getQuestion(0).stimulusLabel" placeholder="Stimulus Label">
+                <input type="text" [(ngModel)]="getQuestion(0).reponseLabel" placeholder="Response Label">
             </div>
             <div class="stimulus">
                 <div class="stimulus-question">
                     <label for="">Stimulus List*</label>
                     <div class="multipleInputs">
-                        <div>
+                        <div *ngFor="let stimulus of getQuestion(0)?.stimuli; let i = index">
                             <button>
                                 <span>
                                     <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
@@ -49,18 +49,18 @@
                                     <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
                                 </span>
                             </button>
-                            <input type="text">
-                            <button>
+                            <input type="text" [(ngModel)]="stimulus.text" type="text" placeholder="Enter stimulus text">
+                            <button (click)="deleteStimulus(i)">
                                 <i class="fa-solid fa-trash" style="color: #1F7A54;"></i>
                             </button>
                         </div>
                     </div>
-                    <button>ADD STIMULUS</button>
+                    <button (click)="addStimulus()">ADD STIMULUS</button>
                 </div>
                 <div class="stimulus-response">
                     <label for="">Response List*</label>
                     <div class="multipleInputs">
-                        <div>
+                        <div *ngFor="let response of getQuestion(0)?.response; let j = index">
                             <button>
                                 <span>
                                     <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
@@ -69,24 +69,24 @@
                                     <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
                                 </span>
                             </button>
-                            <input type="text">
-                            <button>
+                            <input  [(ngModel)]="response.text" type="text" placeholder="Enter response text">
+                            <button (click)="deleteResponse(j)">
                                 <i class="fa-solid fa-trash" style="color: #1F7A54;"></i>
                             </button>
                         </div>
                     </div>
-                    <button>ADD RESPONSE</button>
+                    <button (click)="addResponse()">ADD RESPONSE</button>
                 </div>
             </div>
             <div class="connectionSelect">
                 <label for="">Connection Type*</label>
                 <div class="radioBtns">
                     <div>
-                        <input type="radio" name="" id="">
+                        <input type="radio" name="radioBtn" id="">
                         <p>One to One</p>
                     </div>
                     <div>
-                        <input type="radio" name="" id="">
+                        <input type="radio" name="radioBtn" id="">
                         <p>Many to Many</p>
                     </div>
                 </div>
@@ -99,21 +99,15 @@
                 <label for="">Set Correct Answers*</label>
                 <div class="matchValues">
                     <div class="questions">
-                        <div>
-                            <p>Apple</p>
-                        </div>
-                        <div>
-                            <p>Apple</p>
+                        <div *ngFor="let stimulus of getQuestion(0)?.stimuli; let i = index">
+                            <p>{{ stimulus.text }}</p>
                         </div>
                     </div>
                     <div class="match">
                     </div>
                     <div class="responses">
-                        <div>
-                            <p>Orange</p>
-                        </div>
-                        <div>
-                            <p>Orange</p>
+                        <div *ngFor="let response of getQuestion(0)?.response; let j = index">
+                            <p>{{ response.text }}</p>
                         </div> 
                     </div>
                 </div>

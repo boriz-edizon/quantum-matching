@@ -4,12 +4,12 @@
             <p>[Course Family] | ID: 12345677</p>
         </div>
         <div class="right">
-            <button>EXIT PREVIEW</button>
+            <button (click)="goToHomePage()">EXIT PREVIEW</button>
         </div>
     </div>
     <div class="previewRest">
         <div class="previewRestQuestion">
-            <p>Q 1: Match the fruits with their color.</p>
+            <p>Q 1: {{ getQuestion(0).name }}</p>
             <div class="">
                 <i class="fa-solid fa-rotate-right fa-rotate-270" style="color: #1F7A54;"></i>
                 <p>Reset</p>
@@ -18,17 +18,11 @@
         <div class="matchValues">
             <div class="questions">
                 <div class="heading">
-                    <p>Fruits</p>
+                    <p>{{ getQuestion(0).stimulusLabel }}</p>
                 </div>
                 <div class="rows">
-                    <div>
-                        <p>Apple</p>
-                    </div>
-                    <div>
-                        <p>Apple</p>
-                    </div>
-                    <div>
-                        <p>Apple</p>
+                    <div *ngFor="let stimulus of getQuestion(0)?.stimuli; let i = index">
+                        <p>{{stimulus.text}}</p>
                     </div>
                 </div>
             </div>
@@ -36,19 +30,12 @@
             </div>
             <div class="responses">
                 <div class="heading">
-                    <p>Color</p>
+                    <p>{{ getQuestion(0).reponseLabel }}<p>
                 </div>
                 <div class="rows">
-                    <div>
-                        <p>Orange</p>
+                    <div  *ngFor="let response of getQuestion(0)?.response; let j = index">
+                        <p>{{ response.text }}</p>
                     </div>
-                    <div>
-                        <p>Orange</p>
-                    </div>
-                    <div>
-                        <p>Orange</p>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -72,12 +59,6 @@
                             <div>
                                 <p>Apple</p>
                             </div>
-                            <div>
-                                <p>Apple</p>
-                            </div>
-                            <div>
-                                <p>Apple</p>
-                            </div>
                         </div>
                     </div>
                     <div class="responses">
@@ -88,13 +69,6 @@
                             <div>
                                 <p>Orange</p>
                             </div>
-                            <div>
-                                <p>Orange</p>
-                            </div>
-                            <div>
-                                <p>Orange</p>
-                            </div>
-    
                         </div>
                     </div>
                 </div>
