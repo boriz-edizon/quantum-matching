@@ -1,0 +1,143 @@
+<div class="mainContainer">
+    <div class="maintop">
+        <div class="backArrow">←</div>
+        <p>Create New Question</p>
+        <div class="buttons">
+            <button>Cancel</button>
+            <button>Publish</button>
+            <button>Save ⬇</button>
+        </div>
+    </div>
+    <div class="mainRest">
+        <div class="mainRestTop">
+            <p><span>Untitled</span> (Locked)</p>
+            <div>
+                <button>UNLOCK</button>
+                <button (click)="goToPreviewPage()">SAVE AND PREVIEW</button>
+            </div>
+        </div>
+        <div class="mainRestTitle">
+            <div class="mainRestTitleLeft">
+                <p class="left-1">✐</p>
+                <p class="left-2">Question Properties</p>
+            </div>
+            <div class="mainRestTitleMiddle"></div>
+            <div class="mainRestTitleRight">
+                <p class="right-1">2</p>
+                <p class="right-2">Question Content</p>
+            </div>
+        </div>
+        <div class="mainRestContainer">
+            <div class="q-1">
+                <label for="">Question (Stem)*</label>
+                <input type="text" placeholder="Enter Question (Stem)">
+            </div>
+            <div class="q-2">
+                <input type="text" placeholder="Stimulus Label">
+                <input type="text" placeholder="Response Label">
+            </div>
+            <div class="stimulus">
+                <div class="stimulus-question">
+                    <label for="">Stimulus List*</label>
+                    <div class="multipleInputs">
+                        <div>
+                            <button>
+                                <span>
+                                    <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
+                                </span>
+                            </button>
+                            <input type="text">
+                            <button>
+                                <i class="fa-solid fa-trash" style="color: #1F7A54;"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button>ADD STIMULUS</button>
+                </div>
+                <div class="stimulus-response">
+                    <label for="">Response List*</label>
+                    <div class="multipleInputs">
+                        <div>
+                            <button>
+                                <span>
+                                    <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #454545;"></i>
+                                </span>
+                            </button>
+                            <input type="text">
+                            <button>
+                                <i class="fa-solid fa-trash" style="color: #1F7A54;"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button>ADD RESPONSE</button>
+                </div>
+            </div>
+            <div class="connectionSelect">
+                <label for="">Connection Type*</label>
+                <div class="radioBtns">
+                    <div>
+                        <input type="radio" name="" id="">
+                        <p>One to One</p>
+                    </div>
+                    <div>
+                        <input type="radio" name="" id="">
+                        <p>Many to Many</p>
+                    </div>
+                </div>
+                <div class="maxConnections">
+                <p>Maximum connections for each stimulus or response:</p>
+                    <select name="" id=""></select>
+                </div>
+            </div>
+            <div class="setAnswers">
+                <label for="">Set Correct Answers*</label>
+                <div class="matchValues">
+                    <div class="questions">
+                        <div>
+                            <p>Apple</p>
+                        </div>
+                        <div>
+                            <p>Apple</p>
+                        </div>
+                    </div>
+                    <div class="match">
+                    </div>
+                    <div class="responses">
+                        <div>
+                            <p>Orange</p>
+                        </div>
+                        <div>
+                            <p>Orange</p>
+                        </div> 
+                    </div>
+                </div>
+                <div class="extraFeatures">
+                    <div class="f-1">
+                        <input type="checkbox" name="" id="">
+                        <p>Shuffle Responses</p>
+                    </div>
+                    <div class="f-2">
+                        <i class="fa-solid fa-rotate-right fa-rotate-270" style="color: #1F7A54;"></i>
+                        <p>Reset</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="selectTools">
+            <p>SELECT TOOLS</p>
+        </div>
+        <div class="addFeedback">
+            <p>ADD FEEDBACK</p>
+        </div>
+        <div class="previousBtn">
+            <button>PREVIOUS</button>
+        </div>
+    </div>
+</div>
