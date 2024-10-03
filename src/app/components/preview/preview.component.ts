@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuestionsService } from 'src/app/services/questions.service';
+import { QuestionsService } from 'src/app/services/questions/questions.service';
 
 @Component({
   selector: 'app-preview',
