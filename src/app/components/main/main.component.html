@@ -1,24 +1,37 @@
 <div class="mainContainer">
     <div class="maintop">
-        <div class="backArrow">←</div>
+        <div class="backArrow">
+            <span class="iconify" data-icon="heroicons:arrow-left-20-solid" data-width="23" data-height="23"></span>
+        </div>
         <p>Create New Question</p>
         <div class="buttons">
-            <button>Cancel</button>
-            <button>Publish</button>
-            <button>Save ⬇</button>
+            <button>CANCEL</button>
+            <button>PUBLISH</button>
+            <button>
+                SAVE
+                <span class="iconify" data-icon="mingcute:down-fill" data-width="12" data-height="12"></span>
+            </button>
         </div>
     </div>
     <div class="mainRest">
         <div class="mainRestTop">
-            <p><span>Untitled</span> (Locked)</p>
+            <p><span>Untitled</span>&nbsp; (Locked)</p>
             <div>
-                <button>UNLOCK</button>
-                <button (click)="goToPreviewPage()">SAVE AND PREVIEW</button>
+                <button>
+                    <span class="iconify" data-icon="bxs:lock-open" data-width="23" data-height="23"></span>
+                    UNLOCK
+                </button>
+                <button (click)="goToPreviewPage()">
+                    <span class="iconify" data-icon="mdi:eye" data-width="23" data-height="23"></span>
+                    SAVE AND PREVIEW
+                </button>
             </div>
         </div>
         <div class="mainRestTitle">
             <div class="mainRestTitleLeft">
-                <p class="left-1">✐</p>
+                <p class="left-1">
+                    <span class="iconify" data-icon="fa6-solid:pen" data-width="12" data-height="12"></span>
+                </p>
                 <p class="left-2">Question Properties</p>
             </div>
             <div class="mainRestTitleMiddle"></div>
@@ -97,29 +110,31 @@
             </div>
             <div class="setAnswers">
                 <label for="">Set Correct Answers*</label>
-                <div class="matchValues">
-                    <div class="questions">
-                        <div *ngFor="let stimulus of getQuestion(0)?.stimuli; let i = index">
-                            <p>{{ stimulus.text }}</p>
+                <div class="set-answer-div-inner">
+                    <div class="matchValues">
+                        <div class="questions">
+                            <div *ngFor="let stimulus of getQuestion(0)?.stimuli; let i = index">
+                                <p>{{ stimulus.text }}</p>
+                            </div>
+                        </div>
+                        <div class="match">
+                        </div>
+                        <div class="responses">
+                            <div *ngFor="let response of getQuestion(0)?.response; let j = index">
+                                <p>{{ response.text }}</p>
+                            </div> 
                         </div>
                     </div>
-                    <div class="match">
-                    </div>
-                    <div class="responses">
-                        <div *ngFor="let response of getQuestion(0)?.response; let j = index">
-                            <p>{{ response.text }}</p>
-                        </div> 
-                    </div>
-                </div>
-                <div class="extraFeatures">
-                    <div class="f-1">
-                        <input type="checkbox" name="" id="">
-                        <p>Shuffle Responses</p>
-                    </div>
-                    <div class="f-2">
-                        <i class="fa-solid fa-rotate-right fa-rotate-270" style="color: #1F7A54;"></i>
-                        <p>Reset</p>
-
+                    <div class="extraFeatures">
+                        <div class="f-1">
+                            <input type="checkbox" name="" id="">
+                            <p>Shuffle Responses</p>
+                        </div>
+                        <div class="f-2">
+                            <i class="fa-solid fa-rotate-right fa-rotate-270" style="color: #1F7A54;"></i>
+                            <p>Reset</p>
+    
+                        </div>
                     </div>
                 </div>
             </div>

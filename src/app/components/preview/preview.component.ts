@@ -20,4 +20,5 @@ export class PreviewComponent {
     console.log(this.questionService.getQuestion(index))
     return this.questionService.getQuestion(index);
   }
+
 }

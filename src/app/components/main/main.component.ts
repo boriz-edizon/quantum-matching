@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuestionsService } from 'src/app/services/questions.service';
 import { Question } from 'src/app/interfaces/question';
-import { UntypedFormBuilder } from '@angular/forms';
+import { QuestionsService } from 'src/app/services/questions.service';
 
 @Component({
   selector: 'app-main',
