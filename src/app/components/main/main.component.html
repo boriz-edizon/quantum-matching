@@ -115,16 +115,16 @@
                         <div class="questions">
                             <div *ngFor="let stimulus of getQuestion(0)?.stimuli; let i = index">
                                 <p>{{ stimulus.text }}</p>
-                                <div class="circle-target circle-target-left" (mousedown)="onMouseDown($event)"></div>
+                                <div attr.data="{{ stimulus.text }}" class="circle-target circle-target-left" (mousedown)="onMouseDown($event)"></div>
                             </div>
                         </div>
                         <div class="match">
-                            <svg></svg>
+                            <svg [attr.height]="10"></svg>
                         </div>
                         <div class="responses">
                             <div *ngFor="let response of getQuestion(0)?.response; let j = index">
                                 <p>{{ response.text }}</p>
-                                <div class="circle-target circle-target-right"></div>
+                                <div attr.data="{{ response.text }}" class="circle-target circle-target-right"></div>
                             </div> 
                         </div>
                     </div>

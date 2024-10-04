@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LineDrawingService } from 'src/app/services/lineDrawing/line-drawing.service';
 import { QuestionsService } from 'src/app/services/questions/questions.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { QuestionsService } from 'src/app/services/questions/questions.service';
 })
 export class PreviewComponent {
 
-  constructor(private router: Router, private questionService: QuestionsService){}
+  constructor(private router: Router, private questionService: QuestionsService, private lineDrawingService: LineDrawingService){}
 
   goToHomePage(){
     this.router.navigate([""])
@@ -21,4 +22,15 @@ export class PreviewComponent {
     return this.questionService.getQuestion(index);
   }
 
+  ngAfterViewInit() {
+    const svg = document.querySelector('svg') as SVGElement;
+    this.lineDrawingService.initSvg(svg); 
+    
+    document.addEventListener('mousemove', (e: MouseEvent) => this.lineDrawingService.drawLine(e));
+    document.addEventListener('mouseup', (e: MouseEvent) => this.lineDrawingService.endLine(e));
+  }
+
+  onMouseDown(event: MouseEvent) {
+    this.lineDrawingService.startLine(event, true);
+  }
 }

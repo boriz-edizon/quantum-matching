@@ -8,7 +8,7 @@ export class QuestionsService {
     name:  "",
     stimulusLabel: "",
     reponseLabel: "",
-    stimuli: [{text: "", answer: ""}],
+    stimuli: [{text: "", answer: "", userAnswer: ""}],
     response: [{text: ""}]
   }];
   
@@ -29,9 +29,9 @@ export class QuestionsService {
   }
 
   // Add a stimulus to a specific question
-  addStimulus(questionIndex: number, stimulusText: string, stimulusAnswer: string) {
+  addStimulus(questionIndex: number, stimulusText: string, stimulusAnswer: string, userAnswer: string) {
     const question = this.questions[questionIndex];
-    question.stimuli.push({ text: stimulusText, answer: stimulusAnswer });
+    question.stimuli.push({ text: stimulusText, answer: stimulusAnswer, userAnswer: userAnswer });
   }
 
   // Remove a stimulus from a specific question by stimulus index

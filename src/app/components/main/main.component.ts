@@ -21,7 +21,8 @@ export class MainComponent {
   addStimulus() {
     const stimulusText = '';
     const stimulusAnswer = '';
-    this.questionService.addStimulus(0, stimulusText, stimulusAnswer);
+    const userAnswer = '';
+    this.questionService.addStimulus(0, stimulusText, stimulusAnswer, userAnswer);
   }
 
   // Delete a stimulus by index
@@ -54,6 +55,6 @@ export class MainComponent {
   }
 
   onMouseDown(event: MouseEvent) {
-    this.lineDrawingService.startLine(event);
+    this.lineDrawingService.startLine(event, false);
   }
 }

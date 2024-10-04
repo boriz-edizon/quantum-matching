@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { QuestionsService } from '../questions/questions.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,19 @@ export class LineDrawingService {
   private svg: SVGElement | null = null;
   private startItem: HTMLElement | null = null;
   private line: SVGLineElement | null = null;
+  private studentInput: boolean = false;
 
-  constructor() {}
+  constructor(private questionService: QuestionsService) {}
 
   initSvg(svgElement: SVGElement) {
     this.svg = svgElement;
   }
 
-  startLine(e: MouseEvent) {
+  startLine(e: MouseEvent, studentInput: boolean) {
+    this.studentInput = studentInput;
     this.startItem = e.target as HTMLElement;
+
+    console.log(this.startItem.getAttribute("data"))
 
     if (!this.svg || !this.startItem) return;
 
@@ -50,11 +55,16 @@ export class LineDrawingService {
     const endItem = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement;
 
     // Check if the end point is a valid target and is different from the start point
-    if (endItem && endItem.classList.contains('circle-target') && endItem !== this.startItem) {
+    if (endItem && endItem.classList.contains('circle-target-right') && endItem !== this.startItem) {
       const svgRect = this.svg.getBoundingClientRect();
 
       this.line.setAttribute('x2', (e.clientX - svgRect.left).toString());
       this.line.setAttribute('y2', (e.clientY - svgRect.top).toString());
+
+
+      this.studentInput? this.findMatchingStimuli().userAnswer = endItem.getAttribute("data") : this.findMatchingStimuli().answer = endItem.getAttribute("data");
+
+      console.log(this.questionService.getQuestion(0))
 
       // Check if the matched pair is correct
       // if (this.startItem?.dataset.value === endItem.dataset.value) {
@@ -70,5 +80,9 @@ export class LineDrawingService {
     // Reset the state
     this.startItem = null;
     this.line = null;
+  }
+
+  findMatchingStimuli(): { text: string; answer: string | null; userAnswer: string | null} {
+    return this.questionService.getQuestion(0).stimuli.filter(stimulus => stimulus.text == this.startItem?.getAttribute('data'))[0];
   }
 }
